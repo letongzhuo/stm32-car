@@ -6,9 +6,8 @@
 #include "delay.h"
 
 float g_angle_z = 0.0f;        // 绕Z轴角度
+float g_gyro_z_offset = 0.0f;  // Z轴陀螺仪零偏
 
-// 全局变量用于存储零偏
-float g_gyro_z_offset = 0.0f;
 
 // 初始化MPU6500
 uint8_t MPU6500_Init(void)
@@ -38,12 +37,13 @@ uint8_t MPU6500_Init(void)
     return 1;
 }
 
+
 // 校准MPU6500，消除零偏
 void MPU6500_Calibrate(void)
 {
     int32_t sum_z = 0;
     uint16_t i;
-    const uint16_t sample_count = 200; // 2秒内采样200次
+    const uint16_t sample_count = 300; // 3秒内采样300次
     
     // 等待2秒，同时进行采样
     for( i = 0; i < sample_count; i++)
@@ -55,20 +55,22 @@ void MPU6500_Calibrate(void)
     
     // 计算平均值作为零偏
     g_gyro_z_offset = (float)sum_z / sample_count;
+    LED_Blink(2); //采样完成
 }
+
 
 // 计算MPU6500角度
 void MPU6500_CalculateAngle(void)
 {
     int16_t gyro_z;
     float gyro_z_dps;
-    float dt = 0.0115f; // 调用间隔是10ms,0.012
+    float dt = 0.01f; // 调用间隔是10ms,0.012(调大)
     
     // 读取Z轴角速度数据
     gyro_z = GetData(MPU_GYRO_ZOUTH_REG);
     
-    // 将原始数据转换为度/秒，并减去零偏
-    gyro_z_dps = ((float)gyro_z - g_gyro_z_offset) / 65.5f;
+    // 将原始数据转换为度/秒 (MPU6500_GYRO_FS_500 度/秒 -> 65.5 LSB/(度/秒))
+    gyro_z_dps = (float)(gyro_z - g_gyro_z_offset) / 65.5f;
     
     // 积分角速度获取角度
     g_angle_z += gyro_z_dps * dt;

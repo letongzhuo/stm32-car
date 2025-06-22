@@ -30,9 +30,7 @@ float PID_Calculate(PID_TypeDef *pid, float current)
     if(pid->integral > 100) pid->integral = 100;
     if(pid->integral < -100) pid->integral = -100;
     
-    pid->output = pid->kp * error + 
-                 pid->ki * pid->integral + 
-                 pid->kd * (error - pid->last_error);
+    pid->output = pid->kp * error + 40.0f;
     
     pid->last_error = error;
     
@@ -55,7 +53,6 @@ void Car_SetMode(uint8_t mode)
 {
     car_state.mode = mode;
     Car_Stop();
-    delay_ms(1000);
 }
 
 // 停止小车
@@ -81,13 +78,13 @@ void Car_Update(void)
         
         // 更新模式
         last_mode++;
-        if(last_mode > MODE_PATH_ACBD_LOOP) {
+        if(last_mode > MODE_AUTO_SEQUENCE) {
             last_mode = MODE_PATH_AB;
         }
         
         // 设置新模式
         car_state.mode = last_mode;
-        LED_Blink(last_mode - MODE_PATH_AB + 1); // 闪烁1~4次
+        LED_Blink(last_mode - MODE_PATH_AB + 1); // 闪烁1~6次（支持到MODE_AUTO_SEQUENCE）
         
         // 标记已切换
         last_switch = 1;
@@ -116,24 +113,19 @@ void Car_Update(void)
         case MODE_PATH_ACBD_LOOP:
             Car_Path_ACBD_Loop();
             break;
+        case MODE_AUTO_SEQUENCE:
+            Car_AutoSequence();
+            break;
         default:
             Car_Stop();
             break;
     }
 }
-
 // 循迹控制
 void Car_LineFollow(void)
 {
     uint8_t position;
-    float line_error;
-    float output;
     float base_speed = 70.0f;  // 基础速度
-    static uint8_t last_position = 0;  // 记录上一次的位置
-    static uint8_t lost_count = 0;     // 丢失黑线计数器
-    
-    // 更新MPU6500角度数据，虽然循迹用不上角度，但是后续的直线需要更新后的角度
-    
     
     position = IR_Sensor_GetPosition();
     
@@ -142,169 +134,90 @@ void Car_LineFollow(void)
         LED_Blink(1);
         return;
     }
-    
-    // 处理丢失黑线的情况
-    if (position == 0) {
-        lost_count++;
-        // 如果连续多次丢失黑线，根据上一次的位置决定转向
-        if (lost_count > 0) {
-            // if (last_position > 0 && last_position < 3) {  // 上一次在左边
-            //     // Motor_SetSpeed(0, -base_speed*ks);
-            //     // Motor_SetSpeed(1, base_speed*ks);  // 强制左转
-            //     position = last_position;
-            //     // return;  // 直接返回，不执行后面的PID控制
-            // } else if (last_position > 3 && last_position < 5) {  // 上一次在右边
-            //     // Motor_SetSpeed(0, base_speed*ks);
-            //     // Motor_SetSpeed(1, -base_speed*ks);  // 强制右转
-            //     // return;  // 直接返回，不执行后面的PID控制
-            //     position = last_position;
-            // }
-            position = last_position;  // 保持上一次的位置
-        }
-    } else {
-        lost_count = 0;
-        last_position = position;
-    }
-    
-    // 计算位置误差
-    switch(position)
-    {
-        case 0:  // 丢失黑线
-            line_error = 0.0f;  // 保持直线行驶
-            break;
-            
-        case 1:  // 最左侧
-            line_error = 4.5f;  // 需要左转
-            break;
-            
-        case 2:
-            line_error = 4.5f;
-            break;
-            
-        case 3:  // 中间
-            line_error = 0.0f;  // 直线行驶
-            break;
-            
-        case 4:
-            line_error = 4.7f;
-            break;
-            
-        case 5:  // 最右侧
-            line_error = 4.5f;  // 需要右转
-            break;
-
-        default:
-            line_error = 0.0f;
-            break;
-    }
-    
-    // 计算PID输出
-    output = PID_Calculate(&car_state.line_pid, line_error);
-    //LED_Blink(position);
     // 设置电机速度
     if(position>0 && position < 3) {  // 黑线在左侧，需要左转
-        Motor_SetSpeed(0, base_speed - output);  // 左轮减速
+        Motor_SetSpeed(0, -base_speed);  // 左轮减速
         Motor_SetSpeed(1, base_speed);  // 右轮保持全速
     } else if(position<6 && position > 3) {  // 黑线在右侧，需要右转
         Motor_SetSpeed(0, base_speed);  // 左轮保持全速
-        Motor_SetSpeed(1, base_speed - output);  // 右轮减速
+        Motor_SetSpeed(1, -base_speed);  // 右轮减速
     } else {  // position == 5，直线行驶
-        Motor_SetSpeed(0, base_speed-5);  // 左轮全速
-        Motor_SetSpeed(1, base_speed-10);  // 右轮全速
+        Motor_SetSpeed(0, base_speed);  // 左轮全速
+        Motor_SetSpeed(1, base_speed);  // 右轮全速
     }
 }
 
 // 全局变量用于存储角度
 extern float g_angle_z; // 绕Z轴角度，左加右减
-
+PID_TypeDef turn_pid = {1.0f, 0.0f, 0.5f, 0.0f, 0.0f}; // 可调参数
 
 // 角度转弯控制
 // target_angle: 目标角度 (度)
 void Car_TurnAngle(float target_angle)
 {
-    float angle_error = 0.0f;
+    static int8_t last_turn_direction = 0;
     static uint32_t turn_start_time = 0;
-    static uint32_t turn_duration = 0;
-    static int8_t last_turn_direction = 0;  // 记录上次转向方向
+    float angle_error;
+    float pid_output;
     uint32_t current_time;
     int8_t turn_direction;
-    int16_t left_speed = 0, right_speed = 0;
-    
-    // 更新MPU6500角度数据
-    
-    
-    // 计算角度误差
-    angle_error = target_angle + g_angle_z;
-    
-    // 分级控制转向
-    if (fabsf(angle_error) <= ANGLE_DEADZONE) {
-        // 在死区范围内，停止转向
-        Motor_Stop(0);
-        Motor_Stop(1);
-        last_turn_direction = 0;
-    } else {
-        // 获取当前时间
-        current_time = g_systick_count;
-        
-        // 如果是新的转向动作，记录开始时间
-        if (last_turn_direction == 0) {
-            turn_start_time = current_time;
-        }
-        turn_duration = current_time - turn_start_time;
-        
-        // 确定转向方向
-        turn_direction = (angle_error > 0) ? 1 : -1;
-        last_turn_direction = turn_direction;
-        
-        // 根据误差大小选择基础速度
-        if (fabsf(angle_error) > ERROR_THRESHOLD_1) {
-            left_speed = right_speed = SPEED_LEVEL_1;
-        } else if (fabsf(angle_error) > ERROR_THRESHOLD_2) {
-            left_speed = right_speed = SPEED_LEVEL_2;
-        } else if (fabsf(angle_error) > ERROR_THRESHOLD_3) {
-            left_speed = right_speed = SPEED_LEVEL_3;
-        } else if (fabsf(angle_error) > ERROR_THRESHOLD_4) {
-            left_speed = right_speed = SPEED_LEVEL_4;
-        } else {
-            left_speed = right_speed = SPEED_LEVEL_5;
-        }
-        
-        // 启动加速阶段
-        if (turn_duration < TURN_START_BOOST_TIME) {
-            // 在启动阶段增加20%的速度
-            left_speed = 80;
-            right_speed = 80;
-        }
-        // 减速阶段
-        else if (fabsf(angle_error) < ERROR_THRESHOLD_3 && turn_duration > TURN_DECEL_TIME) {
-            // 在接近目标角度时逐渐降低速度
-            float decel_factor = 1.0f - (float)(turn_duration - TURN_DECEL_TIME) / 1000.0f;
-            if (decel_factor < 0.5f) decel_factor = 0.5f;
-            left_speed = (int16_t)(left_speed * decel_factor);
-            right_speed = (int16_t)(right_speed * decel_factor);
-        }
-        
-        // 设置电机速度
-        if (turn_direction > 0) { // 向右转
-            Motor_SetSpeed(0, left_speed);
-            Motor_SetSpeed(1, -right_speed);
-        } else { // 向左转
-            Motor_SetSpeed(0, -left_speed);
-            Motor_SetSpeed(1, right_speed);
-        }
+    int16_t left_speed, right_speed;
+    float min_speed = 45.0f,max_speed = 70.0f;
+    float start_boost_speed = 70.0f; // 小角度初始加速
+    float abs_error, speed;
+
+    angle_error = target_angle - g_angle_z;
+    abs_error = fabsf(angle_error);
+
+    // PID计算
+    pid_output = PID_Calculate(&turn_pid, angle_error);
+
+    // 速度限幅
+    speed = fabsf(pid_output);
+    if (speed < min_speed) speed = min_speed;
+    if (speed > max_speed) speed = max_speed;
+
+    // 小角度初始加速
+    current_time = g_systick_count;
+    if (abs_error < 40.0f && last_turn_direction == 0) { // 20度以内的转向和第一帧转向
+        speed = start_boost_speed;
+        turn_start_time = current_time;
     }
+    // 启动后短时间内保持boost
+    if (current_time - turn_start_time < 100) { // 100ms内
+        if (speed < start_boost_speed) speed = start_boost_speed;
+    }
+
+    // 死区处理
+    if (abs_error <= ANGLE_DEADZONE) {
+        Car_Stop();
+        last_turn_direction = 0;
+        turn_pid.integral = 0; // 防止积分累积
+        return;
+    }
+
+    // 设置电机速度
+    turn_direction = (angle_error > 0) ? 1 : -1;
+    last_turn_direction = turn_direction;
+
+    left_speed = (turn_direction > 0) ? -speed : speed;
+    right_speed = (turn_direction > 0) ? speed : -speed;
+
+    Motor_SetSpeed(0, left_speed);
+    Motor_SetSpeed(1, right_speed);
 }
 
 // 路径A->B
 void Car_Path_AB(void)
 {
-    static int32_t start_encoder = 0;
+    static int32_t start_encoder = 0, start_time = 0;
     static uint8_t inited = 0;  // 静态变量，只在第一次调用时初始化为0
-    int32_t cur_encoder = 0;
+    int32_t cur_encoder = 0, cur_time = 0;
     float distance = 0.0f;
     
     if (!inited) {  // 第一次调用时，inited为0
         start_encoder = Encoder_GetCount(0);    // 记录起始位置
+        start_time = g_systick_count;
         car_state.path_point = 0;   //设置路径点
         inited = 1; //标记已初始化
         g_angle_z = 0; // 重置角度
@@ -314,6 +227,8 @@ void Car_Path_AB(void)
     cur_encoder = Encoder_GetCount(0);
     distance = (cur_encoder - start_encoder) * ((WHEEL_CIRCUMFERENCE / 10.0f) / ENCODER_RESOLUTION); // 距离计算，单位：cm
     
+    cur_time = g_systick_count; // 获取当前时间
+
     switch(car_state.path_point)
     {
         case 0: // A->B 直线
@@ -322,8 +237,7 @@ void Car_Path_AB(void)
 
             // 使用基于MPU6500角度控制的直线行驶，而不是简单的全速行驶
             Car_StraightLine(100);  // 使用100作为基础速度（全速）
-            
-            if (distance >= 85.0f) { // 直线100cm
+            if (cur_time - start_time >= 2100 && distance >= 75) { // 直线100cm
                 Car_Stop();
                 car_state.path_point = 1; // 路径完成
             }
@@ -337,70 +251,62 @@ void Car_Path_AB(void)
 // 路径A->B->C->D->A
 void Car_Path_ABCD(void)
 {
-    static int32_t start_encoder = 0;
+    static int32_t start_encoder = 0, start_time = 0;
     static uint8_t inited = 0;
-    static uint8_t lost_count = 0;  // 丢失黑线计数器
-    int32_t cur_encoder = 0;
-    float distance = 0.0f;
-    uint8_t position = 0;
+    int32_t cur_encoder = 0, cur_time =0;
+    float  duration = 0.0f;
     
     if (!inited) {
         start_encoder = Encoder_GetCount(0);
+        start_time = g_systick_count;
         car_state.path_point = 0;
         inited = 1;
         g_angle_z = 0; // 重置角度
         Car_ResetStraightLine(); // 重置直线行驶状态
     }
     
-    cur_encoder = Encoder_GetCount(0);
-    distance = (cur_encoder - start_encoder) * ((WHEEL_CIRCUMFERENCE / 10.0f) / ENCODER_RESOLUTION);
-    
+    cur_time = g_systick_count; // 获取当前时间
+    duration = cur_time - start_time; // 计算经过的时间，单位：ms
     switch(car_state.path_point) {
         case 0: // A->B 直线
             // 更新MPU6500角度数据
             
             
-            Car_StraightLine(100);  // 使用基于MPU6500角度控制的直线行驶
+            Car_StraightLine(70);  // 使用基于MPU6500角度控制的直线行驶
             
-            if (distance >= 85.0f || IR_Sensor_GetPosition() != 0) { // 行驶100cm
+            if (IR_Sensor_GetPosition() != 0) { // 行驶100cm
                 Car_Stop();
                 LED_Blink(1);
                 start_encoder = cur_encoder;
+                start_time = cur_time;
                 car_state.path_point = 1; // 切换到B->C右半圆循迹
             }
             break;
             
         case 1: // B->C 右半圆循迹
-            position = IR_Sensor_GetPosition();
-            
-            if (position == 0) {  // 丢失黑线
-                lost_count++;
-            } else {
-                lost_count = 0;  // 找到黑线就重置计数器
-            }
-            
             Car_LineFollow();  // 沿着黑线循迹
             
             // 同时判断距离和连续丢失次数
-            if (distance >= 105.66f && lost_count >= 60) { // 半圆弧长 = π * 40cm 或 连续10次丢失黑线
+            if (fabsf(g_angle_z - (-180.0f)) < 10.0f && duration >= 1500) { // 半圆弧长 = π * 40cm 或 连续10次丢失黑线
                 Car_Stop();
                 LED_Blink(2);
                 start_encoder = cur_encoder;
+                start_time = cur_time;
                 car_state.path_point = 2; // 切换到C->D直线
-                lost_count = 0;  // 重置丢失计数器
             }
             break;
             
         case 2:// C点直行前检查角度
             // 更新MPU6500角度数据
-            Car_TurnAngle(180);
+            Car_TurnAngle(-180);
             // 判断是否转弯到位
-            if (fabsf(g_angle_z + 180.0f) < 2.5f) {
+            if (fabsf(g_angle_z - (-180.0f)) < 1.0f) {
+                Car_Stop();
                 Car_ResetStraightLine();  // 重置直线行驶状态
                 car_state.path_point = 3; // 角度正确，进入直行阶段
                 LED_Blink(1);
-                Car_Stop();
                 start_encoder = cur_encoder;
+                start_time = cur_time;
             }
             break;
             
@@ -409,31 +315,24 @@ void Car_Path_ABCD(void)
             
             
             Car_StraightLine(100);  // 使用基于MPU6500角度控制的直线行驶
-            
-            if (distance >= 90.0f || IR_Sensor_GetPosition() != 0) { // 行驶100cm
+
+            if (IR_Sensor_GetPosition() != 0 && duration >= 1500) { // 行驶100cm
                 Car_Stop();
                 LED_Blink(3);
                 start_encoder = cur_encoder;
+                start_time = cur_time;
                 car_state.path_point = 4; // 切换到D->A左半圆循迹
             }
             break;
             
         case 4: // D->A 左半圆循迹
-            position = IR_Sensor_GetPosition();
-            
-            if (position == 0) {  // 丢失黑线
-                lost_count++;
-            } else {
-                lost_count = 0;  // 找到黑线就重置计数器
-            }
-            
             Car_LineFollow();  // 沿着黑线循迹
             
-            // 必须同时满足距离和黑线丢失条件
-            if (distance >= 105.66f && lost_count >= 60) { // 半圆弧长 = π * 40cm 且 连续30次丢失黑线
+            if (fabsf(g_angle_z - (-360.0f)) < 10.0f) { // 半圆弧长 = π * 40cm 且 连续30次丢失黑线
                 Car_Stop();
                 LED_Blink(4);
                 start_encoder = cur_encoder;
+                start_time = cur_time;
                 car_state.path_point = 5; // 切换到路径完成
             }
             break;
@@ -447,31 +346,32 @@ void Car_Path_ABCD(void)
 // 路径A->C->B->D->A
 void Car_Path_ACBD(void)
 {
-    static int32_t start_encoder = 0;
+    static int32_t start_encoder = 0, start_time = 0;
     static uint8_t inited = 0;
-    static uint8_t lost_count = 0;  // 丢失黑线计数器
-    int32_t cur_encoder = 0;
-    float distance = 0.0f;
-    uint8_t position = 0;
+    int32_t cur_encoder = 0, cur_time = 0;
+    float duration = 0.0f;
     
     if (!inited) {
         start_encoder = Encoder_GetCount(0);
+        start_time = g_systick_count;
         car_state.path_point = 0;
         inited = 1;
         g_angle_z = 0; // 重置角度
+        Car_ResetStraightLine(); // 重置直线行驶状态
     }
     
-    cur_encoder = Encoder_GetCount(0);
-    distance = (cur_encoder - start_encoder) * ((WHEEL_CIRCUMFERENCE / 10.0f) / ENCODER_RESOLUTION); // 距离计算，单位：cm
     
+    cur_time = g_systick_count; // 获取当前时间
+    duration = cur_time - start_time; // 计算经过的时间，单位：ms
     switch(car_state.path_point) {
         case 0: // A点转弯 (向右转38.66度)
-            Car_TurnAngle(35.66f);
+            Car_TurnAngle(-30.00f);
             // 判断是否转弯到位
-            if (fabsf(g_angle_z + (35.66f)) < 2.0f) { // 允许2度误差，需要调整
+            if (fabsf(g_angle_z + (30.00f)) < 1.0f) { // 允许2度误差，需要调整
                  Car_Stop();
                  Car_ResetStraightLine(); // 重置直线行驶状态
                  start_encoder = cur_encoder;
+                 start_time = cur_time;
                  car_state.path_point = 1; // 切换到A->C直线
                 //  car_state.need_reset_angle = 1;  // 在路径点切换时设置重置标志位
                 //  g_angle_z = 0; // 重置角度
@@ -481,12 +381,13 @@ void Car_Path_ACBD(void)
             // 更新MPU6500角度数据
             
             
-            Car_StraightLine(100);  // 使用基于MPU6500角度控制的直线行驶
-            
-            if (distance >= 95.06f || IR_Sensor_GetPosition() != 0) {  // A到C的直线距离
+            Car_StraightLine(70);  // 使用基于MPU6500角度控制的直线行驶
+            //cur_time - start_time >= 4250 || 
+            if (IR_Sensor_GetPosition() == 1 && duration >= 1500) {  // A到C的直线距离
                 Car_Stop();
                 LED_Blink(1);
                 start_encoder = cur_encoder;
+                start_time = cur_time;
                 car_state.path_point = 2; // 切换到C->B半圆
             }
             break;
@@ -494,9 +395,11 @@ void Car_Path_ACBD(void)
             // A点转弯 (向左转38.66度)
             Car_TurnAngle(0.0f);
             // 判断是否转弯到位
-            if (fabsf(g_angle_z - (00.00f)) < 2.0f) { // 允许2度误差，需要调整
+            if (fabsf(g_angle_z - (00.00f)) < 1.0f) { // 允许2度误差，需要调整
                  Car_Stop();
+                 delay_ms(1000); // 等待稳定
                  start_encoder = cur_encoder;
+                 start_time = cur_time;
                  car_state.path_point = 3; // 切换到A->C直线
                 //  g_angle_z = 0; // 重置角度
                 //  car_state.need_reset_angle = 1;  // 设置重置标志位
@@ -505,26 +408,18 @@ void Car_Path_ACBD(void)
             break;
 
         case 3: // C->B 半圆
-            position = IR_Sensor_GetPosition();
-
-            if (position == 0) {  // 丢失黑线
-                lost_count++;
-            } else {
-                lost_count = 0;  // 找到黑线就重置计数器
-            }
-
             Car_LineFollow();  // 半圆循迹
 
-            if (distance >= 103.66f && lost_count >=60) {  // C到B的半圆弧长
+            if (fabsf(g_angle_z - 180.0f) < 5.0f) {  // C到B的半圆弧长
                 Car_Stop();
                 LED_Blink(2);
                 start_encoder = cur_encoder;
-                car_state.path_point = 4; // 切换到B点转弯
-                lost_count = 0;  // 重置丢失计数器
+                start_time = cur_time;
+                car_state.path_point = 5; // 切换到B点转弯
                 // g_angle_z = 0; // 重置角度
             }
             break;
-        case 4: // B点转弯前检查角度
+        case 4: // B点转弯前检查角度,,,!!!已弃用
             // 更新MPU6500角度数据
             Car_TurnAngle(-180);
             
@@ -532,61 +427,55 @@ void Car_Path_ACBD(void)
             if (fabsf(g_angle_z - 180.0f) < 2.5f) {
                 Car_Stop();
                 start_encoder = cur_encoder;
+                start_time = cur_time;
                 car_state.path_point = 5; // 角度正确，进入转弯阶段
             }
             break;
         case 5: // B点转弯 (向左转38.66度)
-            Car_TurnAngle(-240.66f); // 向左转，目标角度为负
+            Car_TurnAngle(205.00f); // 向左转，目标角度为负
             // 判断是否转弯到位
-            if (fabsf(g_angle_z - (240.66f)) < 2.5f) { // 允许5度误差，需要调整
+            if (fabsf(g_angle_z - (205.00f)) < 1.0f) { // 允许5度误差，需要调整
                  Car_Stop();
                  LED_Blink(3);
                  Car_ResetStraightLine(); // 重置直线行驶状态
                  start_encoder = cur_encoder;
+                 start_time = cur_time;
                  car_state.path_point = 6; // 切换到B->D直线
                 //  car_state.need_reset_angle = 1;  // 在路径点切换时设置重置标志位
                 //  g_angle_z = 0; // 重置角度
             }
             break;
         case 6: // B->D 直线
-            // 更新MPU6500角度数据
             
+            Car_StraightLine(70);  // 使用基于MPU6500角度控制的直线行驶
             
-            Car_StraightLine(100);  // 使用基于MPU6500角度控制的直线行驶
-            
-            if (distance >= 110.06f || IR_Sensor_GetPosition() != 0) {  // B到D的直线距离
+            if (IR_Sensor_GetPosition() == 5 && duration >= 1500) {  // B到D的直线距离
                 Car_Stop();
                 LED_Blink(4);
                 start_encoder = cur_encoder;
+                start_time = cur_time;
                 car_state.path_point = 7; // 切换到D点转弯
                 // g_angle_z = 0; // 重置角度
             }
             break;
         case 7: // D点转弯 (向右转38.66度)
-             Car_TurnAngle(-180.00f);
+             Car_TurnAngle(180.00f);
             // 判断是否转弯到位
-            if (fabsf(g_angle_z - 180.00f) < 2.5f) { // 允许5度误差，需要调整
+            if (fabsf(g_angle_z - 180.00f) < 1.0f) { // 允许5度误差，需要调整
                  Car_Stop();
+                 delay_ms(1000); // 等待稳定
                  start_encoder = cur_encoder;
+                 start_time = cur_time;
                  car_state.path_point = 8; // 切换到D->A半圆
                 //  g_angle_z = 0; // 重置角度
             }
             break;
         case 8: // D->A 半圆
-            position = IR_Sensor_GetPosition();
-
-            if (position == 0) {  // 丢失黑线
-                lost_count++;
-            } else {
-                lost_count = 0;  // 找到黑线就重置计数器
-            }
-
             Car_LineFollow();  // D到A半圆循迹
-            if (distance >= 105.66f && lost_count >= 40) {  // D到A的半圆弧长
+            if (fabsf(g_angle_z - 0.0f) < 10.0f) {  // D到A的半圆弧长
                 Car_Stop();
                 LED_Blink(5);
                 car_state.path_point = 9; // 路径完成
-                lost_count = 0;  // 重置丢失计数器
             }
             break;
         case 9:
@@ -598,15 +487,14 @@ void Car_Path_ACBD(void)
 // 路径A->C->B->D->A，循环4圈
 void Car_Path_ACBD_Loop(void)
 {
-    static int32_t start_encoder = 0;
+    static int32_t start_encoder = 0, start_time = 0;
     static uint8_t inited = 0;
-    static uint8_t lost_count = 0;  // 丢失黑线计数器
-    int32_t cur_encoder = 0;
-    float distance = 0.0f;
-    uint8_t position = 0;
+    int32_t cur_encoder = 0, cur_time = 0;
+    float duration = 0.0f;
     
     if (!inited) {
         start_encoder = Encoder_GetCount(0);
+        start_time = g_systick_count;
         car_state.path_point = 0;
         car_state.loop_count = 0;
         inited = 1;
@@ -614,17 +502,17 @@ void Car_Path_ACBD_Loop(void)
         Car_ResetStraightLine(); // 重置直线行驶状态
     }
     
-    cur_encoder = Encoder_GetCount(0);
-    distance = (cur_encoder - start_encoder) * ((WHEEL_CIRCUMFERENCE / 10.0f) / ENCODER_RESOLUTION); // 距离计算，单位：cm
-    
+    cur_time = g_systick_count; // 获取当前时间
+    duration = cur_time - start_time; // 计算经过的时间，单位：ms
     switch(car_state.path_point) {
         case 0: // A点转弯 (向右转38.66度)
-            Car_TurnAngle(38.66f);
+            Car_TurnAngle(-30.00f);
             // 判断是否转弯到位
-            if (fabsf(g_angle_z + (38.66f)) < 2.0f) { // 允许2度误差，需要调整
+            if (fabsf(g_angle_z - (-30.00f)) < 1.0f) { // 允许2度误差，需要调整
                  Car_Stop();
                  Car_ResetStraightLine(); // 重置直线行驶状态
                  start_encoder = cur_encoder;
+                 start_time = cur_time;
                  car_state.path_point = 1; // 切换到A->C直线
                 //  g_angle_z = 0; // 重置角度
                 //  car_state.need_reset_angle = 1;  // 设置重置标志位
@@ -635,12 +523,13 @@ void Car_Path_ACBD_Loop(void)
             // 更新MPU6500角度数据
             
             
-            Car_StraightLine(100);  // 使用基于MPU6500角度控制的直线行驶
+            Car_StraightLine(70);  // 使用基于MPU6500角度控制的直线行驶
             
-            if (distance >= 95.06f) {  // A到C的直线距离
+            if (IR_Sensor_GetPosition() == 1 && duration >= 1500) {  // A到C的直线距离
                 Car_Stop();
                 LED_Blink(1);
                 start_encoder = cur_encoder;
+                start_time = cur_time;
                 car_state.path_point = 2; // 切换到C->B半圆
                 // g_angle_z = 0; // 重置角度
             }
@@ -650,9 +539,11 @@ void Car_Path_ACBD_Loop(void)
             // C点转弯 (向左转38.66度)
             Car_TurnAngle(0.00f);
             // 判断是否转弯到位
-            if (fabsf(g_angle_z - (0.00f)) < 2.0f) { // 允许2度误差，需要调整
+            if (fabsf(g_angle_z - (0.00f)) < 1.0f) { // 允许2度误差，需要调整
                  Car_Stop();
+                 delay_ms(1000); // 等待稳定
                  start_encoder = cur_encoder;
+                 start_time = cur_time;
                  car_state.path_point = 3; // 切换到C->B半圆
                 //  g_angle_z = 0; // 重置角度
                 //  car_state.need_reset_angle = 1;  // 设置重置标志位
@@ -660,24 +551,18 @@ void Car_Path_ACBD_Loop(void)
             }
             break;
         case 3: // C->B 半圆
-            position = IR_Sensor_GetPosition();
-
-            if (position == 0) {  // 丢失黑线
-                lost_count++;
-            } else {
-                lost_count = 0;  // 找到黑线就重置计数器
-            }
-
             Car_LineFollow();  // C到B半圆循迹
             // 同时判断距离和连续丢失次数
-            if (distance >= 103.66f && lost_count >= 40) {  // C到B的半圆弧长
+            if (fabsf(g_angle_z - 180.0f) < 5.0f) {  // C到B的半圆弧长
                 Car_Stop();
+                LED_Blink(2);
                 start_encoder = cur_encoder;
-                car_state.path_point = 4; // 切换到B点转弯
+                start_time = cur_time;
+                car_state.path_point = 5; // 切换到B点转弯
                 // g_angle_z = 0; // 重置角度
             }
             break;
-        case 4: // B点转弯前检查角度
+        case 4: // B点转弯前检查角度.!!已弃用！！！！！！！！
             Car_TurnAngle(-180);
             // 检查当前角度是否接近180度（允许±5度误差）
             if (fabsf(g_angle_z - 180.0f) < 5.0f) {
@@ -685,61 +570,60 @@ void Car_Path_ACBD_Loop(void)
             }
             break;
         case 5: // B点转弯 (向左转38.66度)
-            Car_TurnAngle(-218.66f); // 向左转，目标角度为负
+            Car_TurnAngle(205.00f); // 向左转，目标角度为负
             // 判断是否转弯到位
-            if (fabsf(g_angle_z - (218.66f)) < 2.5f) { // 允许5度误差，需要调整
+            if (fabsf(g_angle_z - (205.00f)) < 1.0f) { // 允许5度误差，需要调整
                  Car_Stop();
+                 LED_Blink(3);
                  Car_ResetStraightLine(); // 重置直线行驶状态
                  start_encoder = cur_encoder;
+                 start_time = cur_time;
                  car_state.path_point = 6; // 切换到B->D直线
                 //  car_state.need_reset_angle = 1;  // 在路径点切换时设置重置标志位
                 //  g_angle_z = 0; // 重置角度
             }
             break;
         case 6: // B->D 直线
-            // 更新MPU6500角度数据
+
+            Car_StraightLine(70);  // 使用基于MPU6500角度控制的直线行驶
             
-            
-            Car_StraightLine(100);  // 使用基于MPU6500角度控制的直线行驶
-            
-            if (distance >= 110.06f) {  // B到D的直线距离
+            if (IR_Sensor_GetPosition() == 5 && duration >= 2000) {  // B到D的直线距离
                 Car_Stop();
-                LED_Blink(3);
+                LED_Blink(4);
                 start_encoder = cur_encoder;
+                start_time = cur_time;
                 car_state.path_point = 7; // 切换到D点转弯
                 // g_angle_z = 0; // 重置角度
             }
             break;
         case 7: // D点转弯 (向右转38.66度)
-             Car_TurnAngle(-180.00f);
+             Car_TurnAngle(180.00f);
             // 判断是否转弯到位
-            if (fabsf(g_angle_z - 180.00f) < 2.5f) { // 允许5度误差，需要调整
+            if (fabsf(g_angle_z - 180.00f) < 1.0f) { // 允许5度误差，需要调整
                  Car_Stop();
+                 delay_ms(1000); // 等待稳定
                  start_encoder = cur_encoder;
+                 start_time = cur_time;
                  car_state.path_point = 8; // 切换到D->A半圆
-                 g_angle_z = 0; // 重置角度
+                //  g_angle_z = 0; // 重置角度
             }
             break;
         case 8: // D->A 半圆
-            position = IR_Sensor_GetPosition();
-
-            if (position == 0) {  // 丢失黑线
-                lost_count++;
-            } else {
-                lost_count = 0;  // 找到黑线就重置计数器
-            }
 
             Car_LineFollow();  // D到A半圆循迹
 
-            if (distance >= 110.66f && lost_count >= 40) {  // D到A的半圆弧长
-                car_state.loop_count++;
+            if (fabsf(g_angle_z - 0.0f) < 10.0f) {  // D到A的半圆弧长
+                 car_state.loop_count++;
                 if (car_state.loop_count >= 4) {
                     Car_Stop();
                     car_state.path_point = 9; // 路径完成
                 } else {
+                    Car_Stop();
+                    delay_ms(1000); // 等待稳定
+                    Car_ResetStraightLine(); // 重置直线行驶状态
                     start_encoder = cur_encoder;
+                    start_time = cur_time;
                     car_state.path_point = 0; // 回到A->C直线
-                    lost_count = 0;  // 重置丢失计数器
                     // g_angle_z = 0; // 重置角度
                 }
             }
@@ -747,6 +631,7 @@ void Car_Path_ACBD_Loop(void)
         case 9:
             Car_Stop();
             break;
+
     }
 }
 
@@ -804,4 +689,81 @@ void Car_ResetStraightLine(void)
 {
     car_state.need_reset_angle = 1;  // 设置重置标志位
     Car_StraightLine(0);  // 调用一次以触发重置
+}
+
+// 自动连续执行：ABCD -> ACBD -> ACBD_LOOP
+void Car_AutoSequence(void)
+{
+    static uint8_t current_sequence = 0;  // 当前执行的序列：0=ABCD, 1=ACBD, 2=ACBD_LOOP
+    static uint8_t inited = 0;
+    static uint8_t sequence_completed = 0;  // 当前序列是否完成
+    
+    if (!inited) {
+        current_sequence = 0;
+        sequence_completed = 0;
+        inited = 1;
+        // 重置所有路径函数的状态
+        car_state.path_point = 0;
+        car_state.loop_count = 0;
+        g_angle_z = 0;
+        Car_ResetStraightLine();
+    }
+    
+    // 根据当前序列执行相应的路径
+    switch (current_sequence) {
+        case 0:  // 执行ABCD路径
+            Car_Path_ABCD();
+            // 检查ABCD是否完成（通过检查path_point是否为5）
+            if (car_state.path_point == 5) {
+                while(1){
+                    Car_TurnAngle(-360.0f);
+                    if(fabsf(g_angle_z - (-360.0f)) < 1.0f){
+                        Car_Stop();
+                        break;
+                    }
+                }
+
+                sequence_completed = 1;
+            }
+            break;
+            
+        case 1:  // 执行ACBD路径
+            Car_Path_ACBD();
+            // 检查ACBD是否完成（通过检查path_point是否为9）
+            if (car_state.path_point == 9) {
+                sequence_completed = 1;
+            }
+            break;
+            
+        case 2:  // 执行ACBD_LOOP路径
+            Car_Path_ACBD_Loop();
+            // 检查ACBD_LOOP是否完成（通过检查path_point是否为9且loop_count>=4）
+            if (car_state.path_point == 9 && car_state.loop_count >= 4) {
+                sequence_completed = 1;
+            }
+            break;
+    }
+    
+    // 如果当前序列完成，切换到下一个序列
+    if (sequence_completed) {
+        Car_Stop();
+        delay_ms(1000);  // 等待1秒
+        
+        current_sequence++;
+        if (current_sequence > 2) {
+            // 所有序列完成，停止
+            Car_Stop();
+            return;
+        }
+        
+        // 重置状态，准备执行下一个序列
+        sequence_completed = 0;
+        car_state.path_point = 0;
+        car_state.loop_count = 0;
+        g_angle_z = 0;
+        Car_ResetStraightLine();
+        
+        // 指示当前执行的序列
+        LED_Blink(current_sequence + 1);
+    }
 }

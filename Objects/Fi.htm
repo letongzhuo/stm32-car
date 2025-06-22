@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\Fi.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Fi.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Jun 18 09:24:09 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Jun 22 08:24:01 2025
 <BR><P>
-<H3>Maximum Stack Usage =        120 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        136 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; Car_Update &rArr; Car_Path_ACBD_Loop &rArr; Car_LineFollow &rArr; PID_Calculate &rArr; __aeabi_fmul
+__rt_entry_main &rArr; main &rArr; Car_Update &rArr; Car_AutoSequence &rArr; Car_Path_ACBD_Loop &rArr; Car_TurnAngle &rArr; PID_Calculate &rArr; __aeabi_fmul
 <P>
 <H3>
 Functions with no stack information
@@ -91,9 +91,9 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 </UL>
 
-<P><STRONG><a name="[b7]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[b6]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
-<P><STRONG><a name="[b8]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[b7]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
 <P><STRONG><a name="[38]"></a>__scatterload_copy</STRONG> (Thumb, 26 bytes, Stack size unknown bytes, __scatter_copy.o(!!handler_copy), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
@@ -101,78 +101,78 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
 </UL>
 
-<P><STRONG><a name="[b9]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
+<P><STRONG><a name="[b8]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
 
 <P><STRONG><a name="[3c]"></a>__rt_lib_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_li
 </UL>
 
-<P><STRONG><a name="[ba]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
+<P><STRONG><a name="[b9]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
 
-<P><STRONG><a name="[bb]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
+<P><STRONG><a name="[ba]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
 
-<P><STRONG><a name="[bc]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
+<P><STRONG><a name="[bb]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
 
-<P><STRONG><a name="[bd]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
+<P><STRONG><a name="[bc]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
 
-<P><STRONG><a name="[be]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
+<P><STRONG><a name="[bd]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
 
-<P><STRONG><a name="[bf]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
+<P><STRONG><a name="[be]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
 
-<P><STRONG><a name="[c0]"></a>__rt_lib_init_fp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000002))
+<P><STRONG><a name="[bf]"></a>__rt_lib_init_fp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000002))
 
-<P><STRONG><a name="[c1]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
+<P><STRONG><a name="[c0]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
 
-<P><STRONG><a name="[c2]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
+<P><STRONG><a name="[c1]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
 
-<P><STRONG><a name="[c3]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
+<P><STRONG><a name="[c2]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
 
-<P><STRONG><a name="[c4]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
+<P><STRONG><a name="[c3]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
 
-<P><STRONG><a name="[c5]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
+<P><STRONG><a name="[c4]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
 
-<P><STRONG><a name="[c6]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
+<P><STRONG><a name="[c5]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
 
-<P><STRONG><a name="[c7]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
+<P><STRONG><a name="[c6]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
 
-<P><STRONG><a name="[c8]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
+<P><STRONG><a name="[c7]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
 
-<P><STRONG><a name="[c9]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
+<P><STRONG><a name="[c8]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
 
-<P><STRONG><a name="[ca]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
+<P><STRONG><a name="[c9]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
 
-<P><STRONG><a name="[cb]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
+<P><STRONG><a name="[ca]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
 
-<P><STRONG><a name="[cc]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
+<P><STRONG><a name="[cb]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
 
-<P><STRONG><a name="[cd]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
+<P><STRONG><a name="[cc]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
 
-<P><STRONG><a name="[ce]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
+<P><STRONG><a name="[cd]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
 
 <P><STRONG><a name="[41]"></a>__rt_lib_shutdown</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_ls
 </UL>
 
-<P><STRONG><a name="[cf]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
+<P><STRONG><a name="[ce]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
 
-<P><STRONG><a name="[d0]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
+<P><STRONG><a name="[cf]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
 
-<P><STRONG><a name="[d1]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
+<P><STRONG><a name="[d0]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
 
-<P><STRONG><a name="[d2]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
+<P><STRONG><a name="[d1]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
 
-<P><STRONG><a name="[d3]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
+<P><STRONG><a name="[d2]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
 
-<P><STRONG><a name="[d4]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
+<P><STRONG><a name="[d3]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
 
-<P><STRONG><a name="[d5]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
+<P><STRONG><a name="[d4]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
 
 <P><STRONG><a name="[36]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
 <LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 </UL>
 
-<P><STRONG><a name="[d6]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
+<P><STRONG><a name="[d5]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
 
 <P><STRONG><a name="[39]"></a>__rt_entry_sh</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry4.o(.ARM.Collect$$rtentry$$00000004))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -185,17 +185,17 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init
 </UL>
 
-<P><STRONG><a name="[d7]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
+<P><STRONG><a name="[d6]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[3d]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; Car_Update &rArr; Car_Path_ACBD_Loop &rArr; Car_LineFollow &rArr; PID_Calculate &rArr; __aeabi_fmul
+<BR><BR>[Stack]<UL><LI>Max Depth = 136 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; Car_Update &rArr; Car_AutoSequence &rArr; Car_Path_ACBD_Loop &rArr; Car_TurnAngle &rArr; PID_Calculate &rArr; __aeabi_fmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 </UL>
 
-<P><STRONG><a name="[d8]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
+<P><STRONG><a name="[d7]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
 
 <P><STRONG><a name="[46]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -205,7 +205,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_shutdown
 </UL>
 
-<P><STRONG><a name="[d9]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
+<P><STRONG><a name="[d8]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
 
 <P><STRONG><a name="[42]"></a>__rt_exit_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
@@ -327,11 +327,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[da]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[d9]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[db]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[da]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[dc]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[db]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
 <P><STRONG><a name="[3a]"></a>__user_setup_stackheap</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, sys_stackheap_outer.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -352,215 +352,228 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[dd]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[dc]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[44]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[de]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[dd]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[43]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
 </UL>
 
-<P><STRONG><a name="[df]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[de]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[e0]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[df]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
 <P><STRONG><a name="[7]"></a>BusFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(i.BusFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_ld.o(RESET)
 </UL>
-<P><STRONG><a name="[e1]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, indicate_semi.o(.text), UNUSED)
+<P><STRONG><a name="[e0]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, indicate_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[47]"></a>Car_Init</STRONG> (Thumb, 18 bytes, Stack size 4 bytes, car_control.o(i.Car_Init))
+<P><STRONG><a name="[47]"></a>Car_AutoSequence</STRONG> (Thumb, 264 bytes, Stack size 8 bytes, car_control.o(i.Car_AutoSequence))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = Car_AutoSequence &rArr; Car_Path_ACBD_Loop &rArr; Car_TurnAngle &rArr; PID_Calculate &rArr; __aeabi_fmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_ResetStraightLine
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+</UL>
+<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
+</UL>
+
+<P><STRONG><a name="[52]"></a>Car_Init</STRONG> (Thumb, 18 bytes, Stack size 4 bytes, car_control.o(i.Car_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = Car_Init &rArr; PID_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Init
+<BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[49]"></a>Car_LineFollow</STRONG> (Thumb, 268 bytes, Stack size 32 bytes, car_control.o(i.Car_LineFollow))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = Car_LineFollow &rArr; PID_Calculate &rArr; __aeabi_fmul
+<P><STRONG><a name="[54]"></a>Car_LineFollow</STRONG> (Thumb, 154 bytes, Stack size 24 bytes, car_control.o(i.Car_LineFollow))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = Car_LineFollow &rArr; LED_Blink
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
-<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
-<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_GetPosition
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate
+<BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_GetPosition
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
 </UL>
 
-<P><STRONG><a name="[50]"></a>Car_Path_AB</STRONG> (Thumb, 140 bytes, Stack size 32 bytes, car_control.o(i.Car_Path_AB))
+<P><STRONG><a name="[58]"></a>Car_Path_AB</STRONG> (Thumb, 172 bytes, Stack size 32 bytes, car_control.o(i.Car_Path_AB))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = Car_Path_AB &rArr; Car_ResetStraightLine &rArr; Car_StraightLine &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_GetCount
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
-<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_ResetStraightLine
+<BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_GetCount
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_ResetStraightLine
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
-</UL>
-
-<P><STRONG><a name="[59]"></a>Car_Path_ABCD</STRONG> (Thumb, 426 bytes, Stack size 32 bytes, car_control.o(i.Car_Path_ABCD))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = Car_Path_ABCD &rArr; Car_LineFollow &rArr; PID_Calculate &rArr; __aeabi_fmul
-</UL>
-<BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_GetPosition
-<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_GetCount
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
-<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_ResetStraightLine
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
-</UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
+<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
 </UL>
 
-<P><STRONG><a name="[5d]"></a>Car_Path_ACBD</STRONG> (Thumb, 632 bytes, Stack size 32 bytes, car_control.o(i.Car_Path_ACBD))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = Car_Path_ACBD &rArr; Car_LineFollow &rArr; PID_Calculate &rArr; __aeabi_fmul
+<P><STRONG><a name="[49]"></a>Car_Path_ABCD</STRONG> (Thumb, 382 bytes, Stack size 24 bytes, car_control.o(i.Car_Path_ABCD))
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = Car_Path_ABCD &rArr; Car_TurnAngle &rArr; PID_Calculate &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_GetPosition
-<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_GetCount
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
-<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_ResetStraightLine
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
+<BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_GetPosition
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_GetCount
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_ResetStraightLine
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
+<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_AutoSequence
 </UL>
 
-<P><STRONG><a name="[5e]"></a>Car_Path_ACBD_Loop</STRONG> (Thumb, 636 bytes, Stack size 32 bytes, car_control.o(i.Car_Path_ACBD_Loop))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = Car_Path_ACBD_Loop &rArr; Car_LineFollow &rArr; PID_Calculate &rArr; __aeabi_fmul
+<P><STRONG><a name="[4e]"></a>Car_Path_ACBD</STRONG> (Thumb, 620 bytes, Stack size 24 bytes, car_control.o(i.Car_Path_ACBD))
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = Car_Path_ACBD &rArr; Car_TurnAngle &rArr; PID_Calculate &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_GetPosition
-<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_GetCount
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
-<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_ResetStraightLine
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
+<BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_GetPosition
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_GetCount
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_ResetStraightLine
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
+<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_AutoSequence
 </UL>
 
-<P><STRONG><a name="[52]"></a>Car_ResetStraightLine</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, car_control.o(i.Car_ResetStraightLine))
+<P><STRONG><a name="[4f]"></a>Car_Path_ACBD_Loop</STRONG> (Thumb, 664 bytes, Stack size 24 bytes, car_control.o(i.Car_Path_ACBD_Loop))
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = Car_Path_ACBD_Loop &rArr; Car_TurnAngle &rArr; PID_Calculate &rArr; __aeabi_fmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_GetPosition
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_GetCount
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_ResetStraightLine
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
+</UL>
+<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_AutoSequence
+</UL>
+
+<P><STRONG><a name="[48]"></a>Car_ResetStraightLine</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, car_control.o(i.Car_ResetStraightLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = Car_ResetStraightLine &rArr; Car_StraightLine &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
+<BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
+<BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_AutoSequence
 </UL>
 
-<P><STRONG><a name="[5f]"></a>Car_SetMode</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, car_control.o(i.Car_SetMode))
+<P><STRONG><a name="[61]"></a>Car_SetMode</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, car_control.o(i.Car_SetMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = Car_SetMode &rArr; Car_Stop &rArr; Motor_Stop &rArr; Motor_SetSpeed
 </UL>
-<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
+<BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[58]"></a>Car_Stop</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, car_control.o(i.Car_Stop))
+<P><STRONG><a name="[4d]"></a>Car_Stop</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, car_control.o(i.Car_Stop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Car_Stop &rArr; Motor_Stop &rArr; Motor_SetSpeed
 </UL>
-<BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
+<BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_SetMode
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
+<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_SetMode
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_AutoSequence
 </UL>
 
-<P><STRONG><a name="[56]"></a>Car_StraightLine</STRONG> (Thumb, 268 bytes, Stack size 32 bytes, car_control.o(i.Car_StraightLine))
+<P><STRONG><a name="[5d]"></a>Car_StraightLine</STRONG> (Thumb, 268 bytes, Stack size 32 bytes, car_control.o(i.Car_StraightLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Car_StraightLine &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
-<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
-<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
+<BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
 </UL>
-<BR>[Called By]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_ResetStraightLine
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
-</UL>
-
-<P><STRONG><a name="[5a]"></a>Car_TurnAngle</STRONG> (Thumb, 384 bytes, Stack size 40 bytes, car_control.o(i.Car_TurnAngle))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = Car_TurnAngle &rArr; Motor_Stop &rArr; Motor_SetSpeed
-</UL>
-<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
-<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
-<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
-<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
-</UL>
-<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<BR>[Called By]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_ResetStraightLine
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
 </UL>
 
-<P><STRONG><a name="[68]"></a>Car_Update</STRONG> (Thumb, 142 bytes, Stack size 8 bytes, car_control.o(i.Car_Update))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = Car_Update &rArr; Car_Path_ACBD_Loop &rArr; Car_LineFollow &rArr; PID_Calculate &rArr; __aeabi_fmul
+<P><STRONG><a name="[4a]"></a>Car_TurnAngle</STRONG> (Thumb, 248 bytes, Stack size 56 bytes, car_control.o(i.Car_TurnAngle))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = Car_TurnAngle &rArr; PID_Calculate &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
-<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_GetPosition
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
+<BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_AutoSequence
+</UL>
+
+<P><STRONG><a name="[67]"></a>Car_Update</STRONG> (Thumb, 148 bytes, Stack size 8 bytes, car_control.o(i.Car_Update))
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = Car_Update &rArr; Car_AutoSequence &rArr; Car_Path_ACBD_Loop &rArr; Car_TurnAngle &rArr; PID_Calculate &rArr; __aeabi_fmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_GetPosition
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_AutoSequence
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -571,69 +584,69 @@ Global Symbols
 <P><STRONG><a name="[13]"></a>EXTI0_IRQHandler</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, main.o(i.EXTI0_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = EXTI0_IRQHandler &rArr; Encoder_Update
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Update
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_GetITStatus
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_ClearITPendingBit
+<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Update
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_GetITStatus
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_ClearITPendingBit
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_ld.o(RESET)
 </UL>
 <P><STRONG><a name="[14]"></a>EXTI1_IRQHandler</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, main.o(i.EXTI1_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = EXTI1_IRQHandler &rArr; Encoder_Update
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Update
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_GetITStatus
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_ClearITPendingBit
+<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Update
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_GetITStatus
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_ClearITPendingBit
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_ld.o(RESET)
 </UL>
 <P><STRONG><a name="[24]"></a>EXTI9_5_IRQHandler</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, encoder.o(i.EXTI9_5_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = EXTI9_5_IRQHandler &rArr; Encoder_Update
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Update
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_GetITStatus
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_ClearITPendingBit
+<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Update
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_GetITStatus
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_ClearITPendingBit
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_ld.o(RESET)
 </UL>
-<P><STRONG><a name="[6b]"></a>EXTI_ClearITPendingBit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_exti.o(i.EXTI_ClearITPendingBit))
+<P><STRONG><a name="[6a]"></a>EXTI_ClearITPendingBit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_exti.o(i.EXTI_ClearITPendingBit))
 <BR><BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI1_IRQHandler
 <LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI0_IRQHandler
 <LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI9_5_IRQHandler
 </UL>
 
-<P><STRONG><a name="[69]"></a>EXTI_GetITStatus</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, stm32f10x_exti.o(i.EXTI_GetITStatus))
+<P><STRONG><a name="[68]"></a>EXTI_GetITStatus</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, stm32f10x_exti.o(i.EXTI_GetITStatus))
 <BR><BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI1_IRQHandler
 <LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI0_IRQHandler
 <LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI9_5_IRQHandler
 </UL>
 
-<P><STRONG><a name="[70]"></a>EXTI_Init</STRONG> (Thumb, 142 bytes, Stack size 0 bytes, stm32f10x_exti.o(i.EXTI_Init))
-<BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init
+<P><STRONG><a name="[6f]"></a>EXTI_Init</STRONG> (Thumb, 142 bytes, Stack size 0 bytes, stm32f10x_exti.o(i.EXTI_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init
 </UL>
 
-<P><STRONG><a name="[51]"></a>Encoder_GetCount</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, encoder.o(i.Encoder_GetCount))
-<BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
+<P><STRONG><a name="[59]"></a>Encoder_GetCount</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, encoder.o(i.Encoder_GetCount))
+<BR><BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
 </UL>
 
-<P><STRONG><a name="[6c]"></a>Encoder_Init</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, encoder.o(i.Encoder_Init))
+<P><STRONG><a name="[6b]"></a>Encoder_Init</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, encoder.o(i.Encoder_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Encoder_Init &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_EXTILineConfig
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_Init
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<BR>[Calls]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_EXTILineConfig
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_Init
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[6a]"></a>Encoder_Update</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, encoder.o(i.Encoder_Update))
+<P><STRONG><a name="[69]"></a>Encoder_Update</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, encoder.o(i.Encoder_Update))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Encoder_Update
 </UL>
-<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI1_IRQHandler
 <LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI0_IRQHandler
@@ -648,240 +661,243 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[6f]"></a>GPIO_EXTILineConfig</STRONG> (Thumb, 60 bytes, Stack size 12 bytes, stm32f10x_gpio.o(i.GPIO_EXTILineConfig))
+<P><STRONG><a name="[6e]"></a>GPIO_EXTILineConfig</STRONG> (Thumb, 60 bytes, Stack size 12 bytes, stm32f10x_gpio.o(i.GPIO_EXTILineConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = GPIO_EXTILineConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init
+<BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init
 </UL>
 
-<P><STRONG><a name="[6e]"></a>GPIO_Init</STRONG> (Thumb, 278 bytes, Stack size 24 bytes, stm32f10x_gpio.o(i.GPIO_Init))
+<P><STRONG><a name="[6d]"></a>GPIO_Init</STRONG> (Thumb, 278 bytes, Stack size 24 bytes, stm32f10x_gpio.o(i.GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Init
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_Init
-<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_OUT
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_IN
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_Init
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_OUT
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_IN
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
 </UL>
 
-<P><STRONG><a name="[72]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ReadInputDataBit))
-<BR><BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Update
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_Read
+<P><STRONG><a name="[71]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ReadInputDataBit))
+<BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Update
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_Read
 </UL>
 
-<P><STRONG><a name="[76]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ResetBits))
-<BR><BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_NAck
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Ack
-<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
+<P><STRONG><a name="[75]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ResetBits))
+<BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_NAck
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Ack
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
 </UL>
 
-<P><STRONG><a name="[79]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_SetBits))
-<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
-<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_NAck
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Ack
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
-<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
+<P><STRONG><a name="[78]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_SetBits))
+<BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_NAck
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Ack
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
 </UL>
 
-<P><STRONG><a name="[73]"></a>GetData</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, i2c.o(i.GetData))
+<P><STRONG><a name="[72]"></a>GetData</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, i2c.o(i.GetData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = GetData &rArr; Single_ReadI2C &rArr; IIC_Read_Byte &rArr; IIC_NAck &rArr; SDA_OUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_ReadI2C
+<BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_ReadI2C
 </UL>
-<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Calibrate
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_CalculateAngle
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_CalculateAngle
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Calibrate
 </UL>
 
 <P><STRONG><a name="[5]"></a>HardFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(i.HardFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_ld.o(RESET)
 </UL>
-<P><STRONG><a name="[75]"></a>IIC_Ack</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, i2c.o(i.IIC_Ack))
+<P><STRONG><a name="[74]"></a>IIC_Ack</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, i2c.o(i.IIC_Ack))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = IIC_Ack &rArr; SDA_OUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_OUT
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_OUT
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
+<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
 </UL>
 
-<P><STRONG><a name="[7a]"></a>IIC_Init</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, i2c.o(i.IIC_Init))
+<P><STRONG><a name="[79]"></a>IIC_Init</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, i2c.o(i.IIC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = IIC_Init &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Init
 </UL>
 
-<P><STRONG><a name="[7b]"></a>IIC_NAck</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, i2c.o(i.IIC_NAck))
+<P><STRONG><a name="[7a]"></a>IIC_NAck</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, i2c.o(i.IIC_NAck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = IIC_NAck &rArr; SDA_OUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_OUT
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_OUT
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
+<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
 </UL>
 
-<P><STRONG><a name="[7c]"></a>IIC_Read_Byte</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, i2c.o(i.IIC_Read_Byte))
+<P><STRONG><a name="[7b]"></a>IIC_Read_Byte</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, i2c.o(i.IIC_Read_Byte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = IIC_Read_Byte &rArr; IIC_NAck &rArr; SDA_OUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_IN
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_NAck
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Ack
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_IN
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_NAck
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Ack
 </UL>
-<BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_ReadI2C
+<BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_ReadI2C
 </UL>
 
-<P><STRONG><a name="[7e]"></a>IIC_Send_Byte</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, i2c.o(i.IIC_Send_Byte))
+<P><STRONG><a name="[7d]"></a>IIC_Send_Byte</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, i2c.o(i.IIC_Send_Byte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = IIC_Send_Byte &rArr; SDA_OUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_OUT
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_OUT
 </UL>
 <BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_WriteI2C
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_ReadI2C
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_ReadI2C
 </UL>
 
-<P><STRONG><a name="[7f]"></a>IIC_Start</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, i2c.o(i.IIC_Start))
+<P><STRONG><a name="[7e]"></a>IIC_Start</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, i2c.o(i.IIC_Start))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = IIC_Start &rArr; SDA_OUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_OUT
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_OUT
 </UL>
 <BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_WriteI2C
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_ReadI2C
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_ReadI2C
 </UL>
 
-<P><STRONG><a name="[80]"></a>IIC_Stop</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, i2c.o(i.IIC_Stop))
+<P><STRONG><a name="[7f]"></a>IIC_Stop</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, i2c.o(i.IIC_Stop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = IIC_Stop &rArr; SDA_OUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_OUT
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_OUT
 </UL>
-<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_WriteI2C
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_ReadI2C
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_ReadI2C
 </UL>
 
-<P><STRONG><a name="[81]"></a>IIC_Wait_Ack</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, i2c.o(i.IIC_Wait_Ack))
+<P><STRONG><a name="[80]"></a>IIC_Wait_Ack</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, i2c.o(i.IIC_Wait_Ack))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = IIC_Wait_Ack &rArr; IIC_Stop &rArr; SDA_OUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_IN
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDA_IN
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
 </UL>
 <BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_WriteI2C
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_ReadI2C
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_ReadI2C
 </UL>
 
-<P><STRONG><a name="[4a]"></a>IR_Sensor_GetPosition</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, sensor.o(i.IR_Sensor_GetPosition))
+<P><STRONG><a name="[55]"></a>IR_Sensor_GetPosition</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, sensor.o(i.IR_Sensor_GetPosition))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = IR_Sensor_GetPosition &rArr; IR_Sensor_Read
 </UL>
-<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_Read
+<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_Read
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
+<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
 </UL>
 
-<P><STRONG><a name="[83]"></a>IR_Sensor_Init</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, sensor.o(i.IR_Sensor_Init))
+<P><STRONG><a name="[82]"></a>IR_Sensor_Init</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, sensor.o(i.IR_Sensor_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = IR_Sensor_Init &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[82]"></a>IR_Sensor_Read</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, sensor.o(i.IR_Sensor_Read))
+<P><STRONG><a name="[81]"></a>IR_Sensor_Read</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, sensor.o(i.IR_Sensor_Read))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = IR_Sensor_Read
 </UL>
-<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_GetPosition
+<BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_GetPosition
 </UL>
 
-<P><STRONG><a name="[4b]"></a>LED_Blink</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, led.o(i.LED_Blink))
+<P><STRONG><a name="[51]"></a>LED_Blink</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, led.o(i.LED_Blink))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = LED_Blink
 </UL>
-<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Calibrate
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_AutoSequence
 </UL>
 
-<P><STRONG><a name="[84]"></a>LED_Init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, led.o(i.LED_Init))
+<P><STRONG><a name="[83]"></a>LED_Init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, led.o(i.LED_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = LED_Init &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[85]"></a>MPU6500_CalculateAngle</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, mpu6500.o(i.MPU6500_CalculateAngle))
+<P><STRONG><a name="[84]"></a>MPU6500_CalculateAngle</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, mpu6500.o(i.MPU6500_CalculateAngle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = MPU6500_CalculateAngle &rArr; GetData &rArr; Single_ReadI2C &rArr; IIC_Read_Byte &rArr; IIC_NAck &rArr; SDA_OUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetData
+<BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetData
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
-<P><STRONG><a name="[86]"></a>MPU6500_Calibrate</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, mpu6500.o(i.MPU6500_Calibrate))
+<P><STRONG><a name="[86]"></a>MPU6500_Calibrate</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, mpu6500.o(i.MPU6500_Calibrate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = MPU6500_Calibrate &rArr; GetData &rArr; Single_ReadI2C &rArr; IIC_Read_Byte &rArr; IIC_NAck &rArr; SDA_OUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetData
+<BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -889,10 +905,10 @@ Global Symbols
 <P><STRONG><a name="[87]"></a>MPU6500_Init</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, mpu6500.o(i.MPU6500_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = MPU6500_Init &rArr; Single_ReadI2C &rArr; IIC_Read_Byte &rArr; IIC_NAck &rArr; SDA_OUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_WriteI2C
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_ReadI2C
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Single_ReadI2C
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -903,8 +919,8 @@ Global Symbols
 <P><STRONG><a name="[89]"></a>Motor_Init</STRONG> (Thumb, 178 bytes, Stack size 40 bytes, motor.o(i.Motor_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = Motor_Init &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2PreloadConfig
@@ -917,54 +933,52 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[4f]"></a>Motor_SetSpeed</STRONG> (Thumb, 242 bytes, Stack size 16 bytes, motor.o(i.Motor_SetSpeed))
+<P><STRONG><a name="[57]"></a>Motor_SetSpeed</STRONG> (Thumb, 242 bytes, Stack size 16 bytes, motor.o(i.Motor_SetSpeed))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Motor_SetSpeed
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare2
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare1
 </UL>
-<BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
+<BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
 </UL>
 
-<P><STRONG><a name="[61]"></a>Motor_Stop</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, motor.o(i.Motor_Stop))
+<P><STRONG><a name="[62]"></a>Motor_Stop</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, motor.o(i.Motor_Stop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Motor_Stop &rArr; Motor_SetSpeed
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
+<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
+<BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Stop
 </UL>
 
 <P><STRONG><a name="[4]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x_it.o(i.NMI_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_ld.o(RESET)
 </UL>
-<P><STRONG><a name="[71]"></a>NVIC_Init</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, misc.o(i.NVIC_Init))
+<P><STRONG><a name="[70]"></a>NVIC_Init</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, misc.o(i.NVIC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = NVIC_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init
+<BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init
 </UL>
 
-<P><STRONG><a name="[4c]"></a>PID_Calculate</STRONG> (Thumb, 138 bytes, Stack size 32 bytes, car_control.o(i.PID_Calculate))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = PID_Calculate &rArr; __aeabi_fmul
+<P><STRONG><a name="[66]"></a>PID_Calculate</STRONG> (Thumb, 102 bytes, Stack size 24 bytes, car_control.o(i.PID_Calculate))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = PID_Calculate &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
+<BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
 </UL>
 
-<P><STRONG><a name="[48]"></a>PID_Init</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, car_control.o(i.PID_Init))
+<P><STRONG><a name="[53]"></a>PID_Init</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, car_control.o(i.PID_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = PID_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Init
+<BR>[Called By]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Init
 </UL>
 
 <P><STRONG><a name="[b]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x_it.o(i.PendSV_Handler))
@@ -974,12 +988,12 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Init
 </UL>
 
-<P><STRONG><a name="[6d]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd))
+<P><STRONG><a name="[6c]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd))
 <BR><BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Init
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_Init
-<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_Init
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
 </UL>
 
 <P><STRONG><a name="[97]"></a>RCC_DeInit</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_DeInit))
@@ -1033,55 +1047,59 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[7d]"></a>SDA_IN</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, i2c.o(i.SDA_IN))
+<P><STRONG><a name="[7c]"></a>SDA_IN</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, i2c.o(i.SDA_IN))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SDA_IN &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
 </UL>
 
-<P><STRONG><a name="[77]"></a>SDA_OUT</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, i2c.o(i.SDA_OUT))
+<P><STRONG><a name="[76]"></a>SDA_OUT</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, i2c.o(i.SDA_OUT))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SDA_OUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_NAck
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Ack
+<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_NAck
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Ack
 </UL>
 
 <P><STRONG><a name="[9]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x_it.o(i.SVC_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_ld.o(RESET)
 </UL>
-<P><STRONG><a name="[74]"></a>Single_ReadI2C</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, i2c.o(i.Single_ReadI2C))
+<P><STRONG><a name="[73]"></a>Single_ReadI2C</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, i2c.o(i.Single_ReadI2C))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = Single_ReadI2C &rArr; IIC_Read_Byte &rArr; IIC_NAck &rArr; SDA_OUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
+<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Init
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetData
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetData
 </UL>
 
 <P><STRONG><a name="[88]"></a>Single_WriteI2C</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, i2c.o(i.Single_WriteI2C))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = Single_WriteI2C &rArr; IIC_Wait_Ack &rArr; IIC_Stop &rArr; SDA_OUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
+<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Init
 </UL>
 
-<P><STRONG><a name="[c]"></a>SysTick_Handler</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f10x_it.o(i.SysTick_Handler))
+<P><STRONG><a name="[c]"></a>SysTick_Handler</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, stm32f10x_it.o(i.SysTick_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = SysTick_Handler &rArr; MPU6500_CalculateAngle &rArr; GetData &rArr; Single_ReadI2C &rArr; IIC_Read_Byte &rArr; IIC_NAck &rArr; SDA_OUT &rArr; GPIO_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_CalculateAngle
+</UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_ld.o(RESET)
 </UL>
 <P><STRONG><a name="[96]"></a>SystemClock_Config</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, system_config.o(i.SystemClock_Config))
@@ -1133,11 +1151,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[92]"></a>TIM_SetCompare1</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetCompare1))
-<BR><BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
+<BR><BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
 </UL>
 
 <P><STRONG><a name="[93]"></a>TIM_SetCompare2</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetCompare2))
-<BR><BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
+<BR><BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
 </UL>
 
 <P><STRONG><a name="[8b]"></a>TIM_TimeBaseInit</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_TimeBaseInit))
@@ -1151,56 +1169,54 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[60]"></a>delay_ms</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, delay.o(i.delay_ms))
+<P><STRONG><a name="[50]"></a>delay_ms</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, delay.o(i.delay_ms))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Init
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Calibrate
-<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_SetMode
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_AutoSequence
 </UL>
 
-<P><STRONG><a name="[78]"></a>delay_us</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, delay.o(i.delay_us))
+<P><STRONG><a name="[77]"></a>delay_us</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, delay.o(i.delay_us))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_NAck
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Ack
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_NAck
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Ack
 </UL>
 
-<P><STRONG><a name="[3e]"></a>main</STRONG> (Thumb, 154 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = main &rArr; Car_Update &rArr; Car_Path_ACBD_Loop &rArr; Car_LineFollow &rArr; PID_Calculate &rArr; __aeabi_fmul
+<P><STRONG><a name="[3e]"></a>main</STRONG> (Thumb, 150 bytes, Stack size 0 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = main &rArr; Car_Update &rArr; Car_AutoSequence &rArr; Car_Path_ACBD_Loop &rArr; Car_TurnAngle &rArr; PID_Calculate &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Init
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Init
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Calibrate
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_CalculateAngle
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
-<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_Init
-<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_SetMode
-<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Init
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Blink
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IR_Sensor_Init
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Update
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_SetMode
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Init
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPriority
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[55]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
+<P><STRONG><a name="[5c]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
+<BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
 </UL>
 
 <P><STRONG><a name="[a4]"></a>_d2f</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f), UNUSED)
@@ -1208,22 +1224,16 @@ Global Symbols
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
 </UL>
 
-<P><STRONG><a name="[53]"></a>__aeabi_i2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt))
-<BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
+<P><STRONG><a name="[5a]"></a>__aeabi_i2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt))
+<BR><BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
 </UL>
 
-<P><STRONG><a name="[e2]"></a>_dflt</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt), UNUSED)
+<P><STRONG><a name="[e1]"></a>_dflt</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt), UNUSED)
 
-<P><STRONG><a name="[54]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
+<P><STRONG><a name="[5b]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
+<BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
 </UL>
 
 <P><STRONG><a name="[a7]"></a>_dmul</STRONG> (Thumb, 332 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul), UNUSED)
@@ -1240,16 +1250,13 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
 </UL>
 
-<P><STRONG><a name="[5b]"></a>__aeabi_fadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fadd))
+<P><STRONG><a name="[60]"></a>__aeabi_fadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fadd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_CalculateAngle
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_CalculateAngle
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
 </UL>
 
 <P><STRONG><a name="[a9]"></a>_fadd</STRONG> (Thumb, 196 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fadd), UNUSED)
@@ -1262,12 +1269,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fcmple
 </UL>
 
-<P><STRONG><a name="[65]"></a>__aeabi_fdiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv))
+<P><STRONG><a name="[85]"></a>__aeabi_fdiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fdiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Calibrate
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_CalculateAngle
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_CalculateAngle
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Calibrate
 </UL>
 
 <P><STRONG><a name="[ac]"></a>_fdiv</STRONG> (Thumb, 384 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv), UNUSED)
@@ -1275,51 +1281,53 @@ Global Symbols
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 </UL>
 
-<P><STRONG><a name="[4e]"></a>__aeabi_f2iz</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, ffix.o(x$fpl$ffix))
+<P><STRONG><a name="[56]"></a>__aeabi_f2iz</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, ffix.o(x$fpl$ffix))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2iz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
+<BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
 </UL>
 
 <P><STRONG><a name="[ad]"></a>_ffix</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, ffix.o(x$fpl$ffix), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 </UL>
 
-<P><STRONG><a name="[64]"></a>__aeabi_f2uiz</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, ffixu.o(x$fpl$ffixu))
+<P><STRONG><a name="[65]"></a>__aeabi_f2uiz</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, ffixu.o(x$fpl$ffixu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2uiz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
+<BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
 </UL>
 
 <P><STRONG><a name="[ae]"></a>_ffixu</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, ffixu.o(x$fpl$ffixu), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 </UL>
 
-<P><STRONG><a name="[67]"></a>__aeabi_i2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt))
-<BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Calibrate
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_CalculateAngle
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
+<P><STRONG><a name="[5f]"></a>__aeabi_i2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt))
+<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_CalculateAngle
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Calibrate
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
 </UL>
 
-<P><STRONG><a name="[e3]"></a>_fflt</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt), UNUSED)
+<P><STRONG><a name="[e2]"></a>_fflt</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt), UNUSED)
 
-<P><STRONG><a name="[63]"></a>__aeabi_ui2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$ffltu))
-<BR><BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
+<P><STRONG><a name="[64]"></a>__aeabi_ui2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$ffltu))
+<BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
 </UL>
 
-<P><STRONG><a name="[e4]"></a>_ffltu</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$ffltu), UNUSED)
+<P><STRONG><a name="[e3]"></a>_ffltu</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$ffltu), UNUSED)
 
-<P><STRONG><a name="[5c]"></a>__aeabi_cfcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf))
+<P><STRONG><a name="[4c]"></a>__aeabi_cfcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_cfcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_AutoSequence
 </UL>
 
 <P><STRONG><a name="[af]"></a>_fcmple</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf), UNUSED)
@@ -1331,13 +1339,12 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frcmple
 </UL>
 
-<P><STRONG><a name="[62]"></a>__aeabi_fmul</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul))
+<P><STRONG><a name="[63]"></a>__aeabi_fmul</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_CalculateAngle
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_CalculateAngle
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
 </UL>
 
 <P><STRONG><a name="[b1]"></a>_fmul</STRONG> (Thumb, 258 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul), UNUSED)
@@ -1351,7 +1358,7 @@ Global Symbols
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ffixu
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ffix
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fdiv
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd
 </UL>
 
@@ -1362,41 +1369,33 @@ Global Symbols
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
 </UL>
 
-<P><STRONG><a name="[57]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, frleqf.o(x$fpl$frleqf))
-<BR><BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
+<P><STRONG><a name="[5e]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, frleqf.o(x$fpl$frleqf))
+<BR><BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_AB
 </UL>
 
 <P><STRONG><a name="[b2]"></a>_frcmple</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, frleqf.o(x$fpl$frleqf), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcmple_InfNaN
 </UL>
 
-<P><STRONG><a name="[66]"></a>__aeabi_frsub</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, faddsub_clz.o(x$fpl$frsb))
-<BR><BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
-</UL>
-
-<P><STRONG><a name="[b4]"></a>_frsb</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, faddsub_clz.o(x$fpl$frsb), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub1
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd1
-</UL>
-
-<P><STRONG><a name="[4d]"></a>__aeabi_fsub</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fsub))
+<P><STRONG><a name="[4b]"></a>__aeabi_fsub</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fsub))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_CalculateAngle
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_LineFollow
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_CalculateAngle
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_TurnAngle
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_StraightLine
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD_Loop
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ACBD
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_Path_ABCD
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_AutoSequence
 </UL>
 
-<P><STRONG><a name="[b6]"></a>_fsub</STRONG> (Thumb, 234 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fsub), UNUSED)
+<P><STRONG><a name="[b4]"></a>_fsub</STRONG> (Thumb, 234 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fsub), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd1
 </UL>
@@ -1411,13 +1410,11 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[b5]"></a>_fadd1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, faddsub_clz.o(x$fpl$fadd), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frsb
+<BR><BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub
 </UL>
 
 <P><STRONG><a name="[aa]"></a>_fsub1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, faddsub_clz.o(x$fpl$fsub), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frsb
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd
+<BR><BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd
 </UL>
 <P>
 <H3>

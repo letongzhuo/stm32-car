@@ -13,6 +13,7 @@
 #define MODE_PATH_ABCD      2   // 路径A->B->C->D->A
 #define MODE_PATH_ACBD      3   // 路径A->C->B->D->A
 #define MODE_PATH_ACBD_LOOP 4   // 路径A->C->B->D->A，循环4圈
+#define MODE_AUTO_SEQUENCE  5   // 自动连续执行：ABCD -> ACBD -> ACBD_LOOP
 
 // 定义转向控制参数
 #define ANGLE_DEADZONE 2.0f        // 死区范围（度）
@@ -65,6 +66,7 @@ void Car_Path_AB(void);         // 路径A->B
 void Car_Path_ABCD(void);       // 路径A->B->C->D->A
 void Car_Path_ACBD(void);       // 路径A->C->B->D->A
 void Car_Path_ACBD_Loop(void);  // 路径A->C->B->D->A，循环4圈
+void Car_AutoSequence(void);    // 自动连续执行：ABCD -> ACBD -> ACBD_LOOP
 void Car_TurnAngle(float target_angle); // 新增角度转弯函数
 void Car_StraightLine(uint8_t base_speed); // 基于MPU6500角度控制的直线行驶
 void Car_ResetStraightLine(void);

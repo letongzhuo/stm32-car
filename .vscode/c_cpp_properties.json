@@ -3,12 +3,12 @@
         {
             "name": "Target 1",
             "includePath": [
-                "d:\\Users\\tongz\\source\\STM32\\自动行驶小车最终版之终极版\\自动行驶小车\\CMSIS",
-                "d:\\Users\\tongz\\source\\STM32\\自动行驶小车最终版之终极版\\自动行驶小车\\FWLib\\inc",
-                "d:\\Users\\tongz\\source\\STM32\\自动行驶小车最终版之终极版\\自动行驶小车\\FWLib\\src",
-                "d:\\Users\\tongz\\source\\STM32\\自动行驶小车最终版之终极版\\自动行驶小车\\USER",
-                "d:\\Users\\tongz\\source\\STM32\\自动行驶小车最终版之终极版\\自动行驶小车\\USER\\inc",
-                "d:\\Users\\tongz\\source\\STM32\\自动行驶小车最终版之终极版\\自动行驶小车\\USER\\src",
+                "d:\\Users\\tongz\\source\\STM32\\自动行驶小车最终版之终极版1\\自动行驶小车 - 中断执行角度更新\\CMSIS",
+                "d:\\Users\\tongz\\source\\STM32\\自动行驶小车最终版之终极版1\\自动行驶小车 - 中断执行角度更新\\FWLib\\inc",
+                "d:\\Users\\tongz\\source\\STM32\\自动行驶小车最终版之终极版1\\自动行驶小车 - 中断执行角度更新\\FWLib\\src",
+                "d:\\Users\\tongz\\source\\STM32\\自动行驶小车最终版之终极版1\\自动行驶小车 - 中断执行角度更新\\USER",
+                "d:\\Users\\tongz\\source\\STM32\\自动行驶小车最终版之终极版1\\自动行驶小车 - 中断执行角度更新\\USER\\inc",
+                "d:\\Users\\tongz\\source\\STM32\\自动行驶小车最终版之终极版1\\自动行驶小车 - 中断执行角度更新\\USER\\src",
                 "D:\\Program Files\\Keil\\ARM\\ARMCC\\include",
                 "D:\\Program Files\\Keil\\ARM\\ARMCC\\include\\rw"
             ],

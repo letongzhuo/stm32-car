@@ -22,7 +22,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
-#include "encoder.h"
+#include "mpu6500.h"
 
 /** @addtogroup Template_Project
   * @{
@@ -134,10 +134,16 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
+    static uint8_t mpu_update_cnt = 0;
+		extern volatile uint32_t g_systick_count;
     // 系统滴答定时器中断处理
     // 每1ms触发一次
-    extern volatile uint32_t g_systick_count;
     g_systick_count++;
+    mpu_update_cnt++;
+    if(mpu_update_cnt >= 10){
+        mpu_update_cnt = 0;
+        MPU6500_CalculateAngle();
+    }
 }
 
 /******************************************************************************/

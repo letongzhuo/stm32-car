@@ -13,4 +13,5 @@
 .\objects\stm32f10x_it.o: .\FWLib\inc\stm32f10x_spi.h
 .\objects\stm32f10x_it.o: .\FWLib\inc\stm32f10x_usart.h
 .\objects\stm32f10x_it.o: .\FWLib\inc\misc.h
-.\objects\stm32f10x_it.o: .\USER\inc\encoder.h
+.\objects\stm32f10x_it.o: .\USER\inc\mpu6500.h
+.\objects\stm32f10x_it.o: D:\Program Files\keil\ARM\ARMCC\Bin\..\include\math.h

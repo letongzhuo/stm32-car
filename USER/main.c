@@ -71,19 +71,18 @@ int main(void)
 	{
 		LED_Blink(3);  // 初始化成功
 	}
-	MPU6500_Calibrate();
+	MPU6500_Calibrate();  // 校准MPU6500，消除零偏
 	
 	Car_Init();
 	
 	// 设置初始模式为循迹模式
-	Car_SetMode(MODE_PATH_ACBD);
+	Car_SetMode(MODE_AUTO_SEQUENCE);
 	// 主循环
 	while(1)
 	{
-		MPU6500_CalculateAngle();  // 更新MPU6500角度数据
-		delay_ms(10);  // 每10ms更新一次
 		// 更新小车状态
 		Car_Update();
+		delay_ms(5);
 		
 	}
 }

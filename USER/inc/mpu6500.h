@@ -35,7 +35,6 @@ typedef struct
 
 // 全局变量用于存储角度
 extern float g_angle_z; // 绕Z轴角度
-extern float g_gyro_z_offset; // Z轴陀螺仪零偏
 
 // 函数声明
 /**
@@ -45,15 +44,10 @@ extern float g_gyro_z_offset; // Z轴陀螺仪零偏
 uint8_t MPU6500_Init(void);
 
 /**
- * @brief 校准MPU6500，消除零偏
- * @note 需要在静止状态下调用，持续2秒
- */
-void MPU6500_Calibrate(void);
-
-/**
  * @brief 计算MPU6500的Z轴角度
  * @note 通过积分角速度计算角度，需要定期调用
  */
 void MPU6500_CalculateAngle(void);
 
+void MPU6500_Calibrate(void);
 #endif /* __MPU6500_H */
